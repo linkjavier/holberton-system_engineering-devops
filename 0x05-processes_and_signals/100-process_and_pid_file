@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#Description of Script
 FILE=/var/run/holbertonscript.pid
 echo $BASHPID > $FILE
 trap 'echo I hate the kill command ; sudo rm $FILE ; exit' SIGTERM
