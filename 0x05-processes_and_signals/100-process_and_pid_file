@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+FILE=/var/run/holbertonscript.pid
+echo $BASHPID > $FILE
+trap 'echo I hate the kill command ; sudo rm $FILE ; exit' SIGTERM
+trap 'echo Y U no love me ?!' SIGINT
+trap 'sudo rm $FILE ; exit' SIGQUIT
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
