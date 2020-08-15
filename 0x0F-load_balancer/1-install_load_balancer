@@ -6,13 +6,14 @@
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 sudo chmod '0777' /etc/default/haproxy
-echo "ENABLED=1" >> /etc/default/haproxy
-echo frontend web-frontend
-        bind *:80
-        mode http
-        default_backend web_backend
+sudo chmod '0777' /etc/haproxy/haproxy.cfg
+sudo echo "ENABLED=1" >> /etc/default/haproxy
+sudo echo "frontend web-frontend
+	bind *:80
+	mode http
+	default_backend web-backend
 backend web-backend
-        balance roundrobin
-        server 1625-web-01 35.229.26.94:80 check
-        server 1625-web-02 184.72.156.146:80 check" >> /etc/haproxy/haproxy.cfg
+	balance roundrobin
+	server 1625-web-01 35.229.26.94:80 check
+	server 1625-web-02 3.80.36.203:80 check" >> /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
