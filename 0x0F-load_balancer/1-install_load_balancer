@@ -15,5 +15,5 @@ sudo echo "frontend web-frontend
 backend web-backend
 	balance roundrobin
 	server 1625-web-01 35.229.26.94:80 check
-	server 1625-web-02 3.80.36.203:80 check" >> /etc/haproxy/haproxy.cfg
+	server 1625-web-02 184.72.156.146:80 check" >> /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
