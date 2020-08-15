@@ -5,15 +5,14 @@
 #HAproxy can be managed via an init script.
 sudo apt-get -y update
 sudo apt-get -y install haproxy
-sudo echo "ENABLED=1" >> /etc/default/haproxy
-cat >> /etc/haproxy/haproxy.cfg << EOF
-frontend web-frontend
+sudo chmod '0777' /etc/default/haproxy
+echo "ENABLED=1" >> /etc/default/haproxy
+echo frontend web-frontend
         bind *:80
         mode http
-        default_backend def-web_backend
-backend def-web-backend
+        default_backend web_backend
+backend web-backend
         balance roundrobin
         server 1625-web-01 35.229.26.94:80 check
-        server 1625-web-02 184.72.156.146:80 check
-EOF
+        server 1625-web-02 184.72.156.146:80 check" >> /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
