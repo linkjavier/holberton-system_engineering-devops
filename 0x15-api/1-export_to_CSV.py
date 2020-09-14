@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Script to export data in the CSV format.
+""" Script to export data in the JSON format.
 """
 
 import requests
@@ -23,4 +23,4 @@ if __name__ == "__main__":
                             quoting=csv.QUOTE_ALL)
         for task in todos.json():
             writer.writerow([argv[1], name, task.get('completed'),
-                             task.get('title')])
+                            task.get('title')])
