@@ -21,7 +21,7 @@ if __name__ == "__main__":
         if task.get('userId') == int(argv[1]):
             toDict = {"task": task.get('title'),
                       "completed": task.get('completed'),
-                      "username": user.json().get('name')}
+                      "username": user.json().get('username')}
             list_task.append(toDict)
     todosuser[argv[1]] = list_task
 
