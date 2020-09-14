@@ -20,7 +20,7 @@ if __name__ == "__main__":
         list_task = []
         for task in todos:
             if task.get('userId') == user.get('id'):
-                toDict = {"username": user.get('name'),
+                toDict = {"username": user.get('username'),
                           "task": task.get('title'),
                           "completed": task.get('completed')}
                 list_task.append(toDict)
