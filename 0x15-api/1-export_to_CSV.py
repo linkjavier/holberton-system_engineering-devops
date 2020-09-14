@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-""" Script to export data in the JSON format.
+""" Script to export data in the CSV format.
 """
 
 import requests
 from sys import argv
 import csv
-
 
 if __name__ == "__main__":
 
@@ -14,7 +13,7 @@ if __name__ == "__main__":
 
         user = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                             .format(argv[1]))
-        name = user.json().get('name')
+        name = user.json().get('username')
         todos = requests.get('https://jsonplaceholder.typicode.com/todos')
 
         writer = csv.writer(csvfile,
